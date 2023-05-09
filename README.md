@@ -9,7 +9,7 @@
 
 ## Deploying a Docker Container (Method 2)
 ```bash
-`docker run -p 5000:5000 --name anime-recomm-container -d -it stealthspectre/anime-recom`
+docker run -p 5000:5000 --name anime-recomm-container -d -it stealthspectre/anime-recom
 ```
 
 # Preview of the site
