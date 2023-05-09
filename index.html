@@ -10,6 +10,7 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     />
+    <link rel="stylesheet" type="text/css" href="static/bootstrap.min.css" />
   </head>
   <body>
     <div class="container">
@@ -62,13 +63,13 @@
               "<h2 class='mt-5'>Recommended Anime:</h2><ul class='list-group'>" +
               Object.keys(recommended_anime_ratings_dict)
                 .map(function (key) {
-                  return (
-                    "<li class='list-group-item'>" +
-                    key +
-                    " (Rating: " +
-                    recommended_anime_ratings_dict[key].rating +
-                    ")</li>"
-                  );
+                  //   return (
+                  //     "<li class='list-group-item'>" +
+                  //     key +
+                  //     " (Rating: " +
+                  //     recommended_anime_ratings_dict[key].rating +
+                  //     ")</li>"
+                  //   );
                 })
                 .join("") +
               "</ul><img class='mt-5' src='data:image/png;base64," +

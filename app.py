@@ -38,6 +38,8 @@ def serve_html():
 def generate_histogram(anime_name_ratings_dict):
     plt.clf()  # Clear the current figure
     
+    fig = plt.figure(figsize=(10, 6)) # Set the size of the figure
+    
     for anime_name in anime_name_ratings_dict.index:
         anime_ratings = anime_ratings_df.loc[anime_ratings_df["name"] == anime_name]["rating_x"]
         plt.hist(anime_ratings, alpha=0.5, label=anime_name)
