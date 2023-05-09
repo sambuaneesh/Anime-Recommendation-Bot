@@ -10,7 +10,7 @@
 ## Deploying a Docker Container (Method 2)
 
 1. Clone this repository
-2. `docker run -p 5000:5000 --name anime-recomm-container -d -it stealthspectre/ani-recom`
+2. `docker run -p 5000:5000 --name anime-recomm-container -d -it stealthspectre/anime-recom`
 
 # Preview of the site
 
