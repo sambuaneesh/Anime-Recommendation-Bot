@@ -8,9 +8,9 @@
 4. Go to this [link](http://localhost:5000) to view the site
 
 ## Deploying a Docker Container (Method 2)
-
-1. Clone this repository
-2. `docker run -p 5000:5000 --name anime-recomm-container -d -it stealthspectre/anime-recom`
+```bash
+`docker run -p 5000:5000 --name anime-recomm-container -d -it stealthspectre/anime-recom`
+```
 
 # Preview of the site
 
