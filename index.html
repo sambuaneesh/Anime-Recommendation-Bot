@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Anime Recommender</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  </head>
+  <body>
+    <h1>Anime Recommender</h1>
+    <form>
+      <label for="anime-name">Enter the name of an anime:</label>
+      <input type="text" id="anime-name" name="anime-name" required />
+      <br />
+      <label for="n">Number of recommendations:</label>
+      <input type="number" id="n" name="n" value="5" min="1" required />
+      <br />
+      <input type="submit" value="Get Recommendations" />
+    </form>
+    <div id="result"></div>
+    <script>
+      $("form").submit(function (event) {
+        event.preventDefault();
+        var anime_name = $("#anime-name").val();
+        var n = $("#n").val();
+        $.ajax({
+          url: "/recommend",
+          type: "POST",
+          contentType: "application/json",
+          data: JSON.stringify({ anime_name: anime_name, n: n }),
+          dataType: "json",
+          success: function (result) {
+            var recommended_anime_ratings_dict =
+              result.recommended_anime_ratings_dict;
+            var image_string = result.image_string;
+            var html =
+              "<h2>Recommended Anime:</h2><ul>" +
+              Object.keys(recommended_anime_ratings_dict)
+                .map(function (key) {
+                  return (
+                    "<li>" +
+                    key +
+                    " (Rating: " +
+                    recommended_anime_ratings_dict[key] +
+                    ")</li>"
+                  );
+                })
+                .join("") +
+              "</ul><br /><img src='data:image/png;base64," +
+              image_string +
+              "' />";
+            $("#result").html(html);
+          },
+          error: function (xhr, status, error) {
+            Swal.fire({
+              icon: "error",
+              title: "Error",
+              text: "Anime not in database",
+            });
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
